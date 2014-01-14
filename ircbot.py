@@ -162,9 +162,17 @@ class TwitterBot(object):
         for update in updates:
             crt = parsedate(update['created_at'])
             if (crt > nextLastUpdate):
-                text = (htmlentitydecode(
-                    update['text'].replace('\n', ' '))
-                    .encode('utf8', 'replace'))
+                if 'retweeted_status' in update:
+                    text = 'RT @{}: {}'.format(
+                        update['retweeted_status']['user']['screen_name'],
+                        text = (htmlentitydecode(
+                            update['retweeted_status']['text'].replace('\n', ' '))
+                            .encode('utf8', 'replace'))
+                    )
+                else:
+                    text = (htmlentitydecode(
+                        update['text'].replace('\n', ' '))
+                        .encode('utf8', 'replace'))
 
                 msg = "%s %s%s:%s %s" % (
                     get_prefix(),
