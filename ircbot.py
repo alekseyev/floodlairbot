@@ -165,9 +165,9 @@ class TwitterBot(object):
                 if 'retweeted_status' in update:
                     text = 'RT @{}: {}'.format(
                         update['retweeted_status']['user']['screen_name'],
-                        text = (htmlentitydecode(
+                        htmlentitydecode(
                             update['retweeted_status']['text'].replace('\n', ' '))
-                            .encode('utf8', 'replace'))
+                        .encode('utf8', 'replace')
                     )
                 else:
                     text = (htmlentitydecode(
