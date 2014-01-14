@@ -1,0 +1,3 @@
+-e git+https://github.com/sixohsix/python-irclib.git@7409428b021d4f6c4fa75192bfac2f40113129fe#egg=python_irclib-dev
+twitter==1.10.0
+wsgiref==0.1.2
