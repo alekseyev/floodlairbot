@@ -146,7 +146,7 @@ class TwitterBot(object):
 
         self.sched = Scheduler(
             (SchedTask(self.process_events, 1),
-             SchedTask(self.check_statuses, 120)))
+             SchedTask(self.check_statuses, 60)))
         self.lastUpdate = (datetime.utcnow() - timedelta(minutes=10)).utctimetuple()
 
     def check_statuses(self):
